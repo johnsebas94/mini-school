@@ -1,0 +1,53 @@
+<div class="bgcomponent">
+    <div class="form">
+      <mat-card class="card">
+        <mat-card-title>Register Grade Level</mat-card-title>
+        <mat-card-content>
+          <div class="container">
+            <mat-form-field>
+              <input
+                [(ngModel)]="registerCourseData.Grade"
+                matInput
+                placeholder="Grade Level"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                [(ngModel)]="registerCourseData.code"
+                matInput
+                placeholder="Grade Code"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                [(ngModel)]="registerCourseData.number"
+                matInput
+                placeholder="Number of Students"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+                <input
+                  [(ngModel)]="registerCourseData.teacher"
+                  matInput
+                  placeholder="Teacher/Tutor"
+                  required
+                />
+              </mat-form-field>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            (click)="registerCourse()"
+            class="button colorButton"
+            mat-raised-button
+          >
+            Register
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  
