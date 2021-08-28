@@ -1,57 +1,60 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SubjectService } from '../../services/subject.service';
+import { GradeService } from '../../services/grade.service';
 import { Router } from '@angular/router';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+
 @Component({
-  selector: 'app-register-subject',
-  templateUrl: './register-subject.component.html',
-  styleUrls: ['./register-subject.component.css'],
+  selector: 'app-register-grade',
+  templateUrl: './register-grade.component.html',
+  styleUrls: ['./register-grade.component.css']
 })
-export class RegisterSubjectComponent implements OnInit {
-  registerSubjectData: any;
-  subjectMessage: string;
+export class RegisterGradeComponent implements OnInit {
+
+  registerGradeData: any;
+  gradeMessage: string;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   durationInSeconds: number = 2;
 
   constructor(
-    private _subjectService: SubjectService,
+    private _gradeService: GradeService,
     private _router: Router,
     private _snackBar: MatSnackBar
   ) {
-    this.registerSubjectData = {}; //Este es un json vacio
-    this.subjectMessage = '';
+    this.registerGradeData = {};
+    this.gradeMessage = '';
   }
 
   ngOnInit(): void {}
-  registerSubject() {
+  registerGrade() {
     if (
-      !this.registerSubjectData.subject ||
-      !this.registerSubjectData.code ||
-      !this.registerSubjectData.grade
+      !this.registerGradeData.grade ||
+      !this.registerGradeData.code ||
+      !this.registerGradeData.number ||
+      !this.registerGradeData.teacher
     ) {
       console.log('Failed process: Incomplete Data');
-      this.subjectMessage = 'Failed process: Incomplete Data';
+      this.gradeMessage = 'Failed process: Incomplete Data';
       this.openSnackBarError();
-      this.registerSubjectData = {};
+      this.registerGradeData = {};
     } else {
-      this._subjectService.registerSubject(this.registerSubjectData).subscribe(
+      this._gradeService.registerGrade(this.registerGradeData).subscribe(
         (res) => {
           console.log(res);
           localStorage.setItem('token', res.jwtToken);
           this._router.navigate(['/login']);
-          this.subjectMessage = 'Succesfull Subject register';
+          this.gradeMessage = 'Succesfull Grade Register';
           this.openSnackBarSuccesfull();
-          this.registerSubjectData = {};
+          this.registerGradeData = {};
         },
         (err) => {
           console.log(err);
-          this.subjectMessage = err.error;
+          this.gradeMessage = err.error;
           this.openSnackBarError();
         }
       );
@@ -59,7 +62,7 @@ export class RegisterSubjectComponent implements OnInit {
   }
 
   openSnackBarSuccesfull() {
-    this._snackBar.open(this.subjectMessage, 'X', {
+    this._snackBar.open(this.gradeMessage, 'X', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       duration: this.durationInSeconds * 1000,
@@ -68,11 +71,12 @@ export class RegisterSubjectComponent implements OnInit {
   }
 
   openSnackBarError() {
-    this._snackBar.open(this.subjectMessage, 'X', {
+    this._snackBar.open(this.gradeMessage, 'X', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       duration: this.durationInSeconds * 1000,
       panelClass: ['style-snackBarFalse'],
     });
   }
+
 }

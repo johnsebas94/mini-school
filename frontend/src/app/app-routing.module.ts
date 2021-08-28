@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterCourseComponent } from './admin/register-course/register-course.component';
+import {RegisterGradeComponent } from './admin/register-grade/register-grade.component';
 import { RegisterStudentComponent } from './admin/register-student/register-student.component';
 import { RegisterSubjectComponent } from './admin/register-subject/register-subject.component';
 import { RegisterTeacherComponent } from './admin/register-teacher/register-teacher.component';
@@ -34,8 +34,8 @@ const routes: Routes = [
     component: RegisterSubjectComponent,
   },
   {
-    path: 'registerCourse',
-    component: RegisterCourseComponent,
+    path: 'registerGrade',
+    component: RegisterGradeComponent,
   },
 ];
 

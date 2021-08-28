@@ -6,13 +6,13 @@ import { environment } from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
-export class SubjectService {
+export class GradeService {
   private env: string;
-
-  constructor(private _http: HttpClient) { 
+  constructor(private _http: HttpClient) {
     this.env = environment.APP_URL;
-  }
-  registerSubject(subject: any){
-    return this._http.post<any>(this.env + 'subject/registerSubject', subject)
+   }
+
+   registerGrade(grade: any){
+    return this._http.post<any>(this.env + 'grade/registerGrade', grade)
   }
 }

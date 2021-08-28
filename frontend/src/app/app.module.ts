@@ -10,11 +10,12 @@ import { FooterComponent } from './home/footer/footer.component';
 import { RegisterStudentComponent } from './admin/register-student/register-student.component';
 import { RegisterTeacherComponent } from './admin/register-teacher/register-teacher.component';
 import { RegisterSubjectComponent } from './admin/register-subject/register-subject.component';
-import { RegisterCourseComponent } from './admin/register-course/register-course.component';
+import { RegisterGradeComponent } from "./admin/register-grade/register-grade.component";
+
 
 //Import Services
 import { UserService } from './services/user.service';
-import { CourseService } from './services/course.service';
+import { GradeService } from "./services/grade.service";
 import { StudentService } from './services/student.service';
 import { SubjectService } from './services/subject.service';
 import { TeacherService } from './services/teacher.service';
@@ -35,6 +36,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     RegisterStudentComponent,
     RegisterTeacherComponent,
     RegisterSubjectComponent,
-    RegisterCourseComponent,
+    RegisterGradeComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     StudentService,
     TeacherService,
     SubjectService,
-    CourseService,
+    GradeService,
     TokenInterceptorService,
     UserService,
     AuthGuard,

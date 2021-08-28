@@ -6,7 +6,7 @@
           <div class="container">
             <mat-form-field>
               <input
-                [(ngModel)]="registerCourseData.Grade"
+                [(ngModel)]="registerGradeData.grade"
                 matInput
                 placeholder="Grade Level"
                 required
@@ -14,7 +14,7 @@
             </mat-form-field>
             <mat-form-field>
               <input
-                [(ngModel)]="registerCourseData.code"
+                [(ngModel)]="registerGradeData.code"
                 matInput
                 placeholder="Grade Code"
                 required
@@ -22,25 +22,25 @@
             </mat-form-field>
             <mat-form-field>
               <input
-                [(ngModel)]="registerCourseData.number"
+                [(ngModel)]="registerGradeData.number"
                 matInput
                 placeholder="Number of Students"
                 required
               />
             </mat-form-field>
             <mat-form-field>
-                <input
-                  [(ngModel)]="registerCourseData.teacher"
-                  matInput
-                  placeholder="Teacher/Tutor"
-                  required
-                />
-              </mat-form-field>
+              <input
+                [(ngModel)]="registerGradeData.teacher"
+                matInput
+                placeholder="Teacher/Tutor"
+                required
+              />
+            </mat-form-field>
           </div>
         </mat-card-content>
         <mat-card-actions>
           <button
-            (click)="registerCourse()"
+            (click)="registerGrade()"
             class="button colorButton"
             mat-raised-button
           >

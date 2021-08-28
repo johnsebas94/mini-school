@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   message: string;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
+  durationInSeconds: number = 2;
   constructor(
     private _userService: UserService,
     private _router: Router,
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
   registerUser() {}
 
   openSnackBarSuccesfull() {}
